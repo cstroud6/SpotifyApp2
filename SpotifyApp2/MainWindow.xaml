@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="Button" HorizontalAlignment="Left" Margin="189,289,0,0" VerticalAlignment="Top" Width="75"/>
+        <ListBox HorizontalAlignment="Left" Height="304" Margin="446,74,0,0" VerticalAlignment="Top" Width="251"/>
+        <Label x:Name="lblText" Content="Enter an artist: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="56,144,0,0"/>
+        <TextBox x:Name="txtInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="189,148,0,0"/>
+
     </Grid>
 </Window>
