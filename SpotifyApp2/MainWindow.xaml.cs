@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +25,21 @@ namespace SpotifyApp2
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //https://api.spotify.com/v1
+
+            using (HttpClient client = new HttpClient())
+            {
+                var response = client.GetAsync(@"https://api.spotify.com/v1").Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = response.Content.ReadAsStringAsync().Result;
+                    SpotifyMusic s = JsonConvert.DeserializeObject<SpotifyMusic>(content);
+                    s.Inlines.Add();
+                };
+            }
         }
     }
 }
